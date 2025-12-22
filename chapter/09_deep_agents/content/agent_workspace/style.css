@@ -1,0 +1,19 @@
+body {
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.contact {
+    background-color: #ffffcc;
+    padding: 20px;
+    text-align: center;
+}
