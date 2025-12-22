@@ -254,13 +254,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## ⭐ Acknowledgments
 
-- Thanks to all students and contributors who helped improve these materials
+- Thanks to all students and contributors who helped improve these materials.
 
 ---
 
 <div align="center">
 
-**Made with ❤️ for AI Engineering Education**
+**Made with ❤️ for NLP Community**
 
 [⬆ Back to Top](#-ai-engineering-course---jupyter-notebooks)
 
