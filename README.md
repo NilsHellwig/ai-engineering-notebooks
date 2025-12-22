@@ -171,21 +171,46 @@ Building interactive web interfaces for AI applications.
    cd ai-engineering-notebooks
    ```
 
-2. **Install dependencies:**
+2. **Install Ollama:**
+
+   Ollama is required for running local Large Language Models (LLMs) used throughout the notebooks. It provides a simple API interface for interacting with various open-source models.
+
+   **macOS:**
+   ```bash
+   brew install ollama
+   ```
+
+   **Linux:**
+   ```bash
+   curl -fsSL https://ollama.com/install.sh | sh
+   ```
+
+   **Windows:**
+   Download the installer from [ollama.com](https://ollama.com/download/windows)
+
+   **Start Ollama server:**
+   ```bash
+   ollama serve
+   ```
+
+   **Pull required models** (examples used in notebooks):
+   ```bash
+   ollama pull gemma3:4b
+   ollama pull gpt-oss:20b
+   ```
+
+   For more information, visit the [Ollama documentation](https://ollama.com/docs).
+
+3. **Install Python dependencies:**
 
    Each notebook specifies its required packages. Common dependencies include:
    ```bash
-   pip install openai ollama pydantic spacy nltk pandas scikit-learn gradio
-   
-   # Download spaCy language models
-   python -m spacy download de_core_news_sm
-   python -m spacy download en_core_web_sm
+   pip install jupyterlab
    ```
 
-3. **Launch Jupyter:**
+4. **Launch Jupyter:**
    ```bash
-   cd Notebooks
-   jupyter notebook
+   jupyter lab
    ```
 
 ---
@@ -199,17 +224,6 @@ Building interactive web interfaces for AI applications.
 
 ---
 
-## 🛠️ Technologies & Libraries
-
-| Library | Purpose |
-|---------|---------|
-| **OpenAI** | LLM API integration |
-| **Ollama** | Local LLM deployment and API |
-| **Pydantic** | Data validation and settings management |
-| **NLTK** | Natural language processing toolkit |
-| **spaCy** | Industrial-strength NLP library |
-| **Pandas** | Data manipulation and analysis |
----
 
 ## 📝 Resources
 
@@ -223,19 +237,6 @@ Building interactive web interfaces for AI applications.
 - [spaCy Documentation](https://spacy.io/)
 - [NLTK Documentation](https://www.nltk.org/)
 - [RegExr - Regular Expression Tester](https://regexr.com/)
-
----
-
-## 👨‍🏫 About the Course
-
-This course provides a hands-on introduction to AI Engineering, covering essential programming concepts, natural language processing techniques, and modern AI development practices. The notebooks are designed for both beginners and intermediate practitioners looking to strengthen their AI engineering skills.
-
-**Course Materials developed at:**  
-Chair of Media Informatics  
-Faculty of Informatics and Data Science (FIDS)  
-University of Regensburg
-
-**Repository:** [github.com/NilsHellwig/ai-engineering-notebooks](https://github.com/NilsHellwig/ai-engineering-notebooks)
 
 ---
 
