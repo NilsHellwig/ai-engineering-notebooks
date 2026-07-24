@@ -124,8 +124,23 @@ Implementing function calling to extend LLM capabilities.
 
 ---
 
-### **06 - Introduction to RAG**
-`Notebooks/06_intro_rag.ipynb`
+### **06 - Agents & Model Context Protocol (MCP)**
+`chapter/06_agents/06_mcp.ipynb`
+
+Connecting LLMs to tools exposed by a standalone MCP server, and an introduction to agents.
+
+**Topics covered:**
+- **Model Context Protocol (MCP)** fundamentals
+- **Building an MCP server** with FastMCP
+- **Calling MCP tools** from a Python client
+- **Combining MCP tools with LLM tool calling**
+
+**Includes:** A small custom MCP server (`mcp_server.py`) with a university library catalog example
+
+---
+
+### **07 - Introduction to RAG**
+`chapter/07_rag/07_intro_rag.ipynb`
 
 Retrieval Augmented Generation for knowledge-enhanced AI responses.
 
@@ -140,8 +155,8 @@ Retrieval Augmented Generation for knowledge-enhanced AI responses.
 
 ---
 
-### **07 - Introduction to Gradio**
-`Notebooks/07_intro_gradio.ipynb`
+### **08 - Introduction to Gradio**
+`chapter/08_gradio/08_intro_gradio.ipynb`
 
 Building interactive web interfaces for AI applications.
 
