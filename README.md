@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Universit%C3%A4t_Regensburg_logo.svg/2560px-Universit%C3%A4t_Regensburg_logo.svg.png" alt="University of Regensburg Logo" width="300">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Universit%C3%A4t_Regensburg_logo.svg" alt="University of Regensburg Logo" width="300">
 
 **Chair of Media Informatics**  
 **Faculty of Informatics and Data Science (FIDS)**  
