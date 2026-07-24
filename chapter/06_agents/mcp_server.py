@@ -116,6 +116,34 @@ def get_author_books(author_name: str) -> list[dict]:
     ]
 
 
+@mcp.tool()
+def checkout_book(isbn: str, member_name: str) -> str:
+    """Check out a book to a library member. Unlike the tools above, this one
+    changes the catalog - only call it once the user has actually confirmed
+    they want to borrow the book.
+
+    Args:
+        isbn: The ISBN of the book to check out.
+        member_name: The name of the member borrowing the book (must be an existing member).
+
+    Returns:
+        A confirmation message, or an error if the book/member can't be found or the book is already checked out.
+    """
+    member = next((m for m in MEMBERS if m["name"].lower() == member_name.lower()), None)
+    if member is None:
+        return f"No member found named '{member_name}'."
+
+    for book in BOOKS:
+        if book["isbn"] == isbn:
+            if not book["available"]:
+                return f"'{book['title']}' is already checked out."
+            book["available"] = False
+            book["borrowed_by"] = member["member_id"]
+            book["due_date"] = "2026-09-01"
+            return f"'{book['title']}' has been checked out to {member['name']}, due {book['due_date']}."
+    return f"No book found with ISBN {isbn}."
+
+
 # Tools are for actions. A Resource is different: it exposes read-only data at a
 # fixed address (a "URI"), similar to a file path or a database record - there
 # are no arguments to fill in, a client just fetches whatever is there.
