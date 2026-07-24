@@ -13,19 +13,23 @@ This guide walks you through setting up your computer for this course, step by s
 `uv` is a tool that installs Python and manages the packages (add-on libraries) used in the notebooks for you.
 
 **macOS / Linux:**
+
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 **Windows (PowerShell):**
+
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 After installation, close and reopen your terminal, then check that it worked:
+
 ```bash
 uv --version
 ```
+
 You should see a version number printed (e.g. `uv 0.9.x`).
 
 ---
@@ -149,7 +153,32 @@ uv run python -m spacy download de_core_news_sm
 
 ---
 
-## 5. Launch Jupyter Lab
+## 5. Create your `.env` file
+
+From chapter 03 onward, notebooks connect to an LLM server. Its address is kept out of the notebooks (and out of the public GitHub repo) and instead read from a file named `.env`, which you create yourself, once, in your `ai-engineering-course` folder.
+
+- **Taking this as part of the course?** You'll get the IP address in the lecture.
+- **Studying on your own with your own local Ollama install instead?** Use `localhost`.
+
+Create the file with a single command — this creates `.env` with one line in it. Replace the value with the address you got in the lecture (or `localhost`):
+
+### macOS / Linux
+
+```bash
+echo "LLM_HOST=<the IP address from the lecture, or localhost>" > .env
+```
+
+### Windows (PowerShell)
+
+```powershell
+echo "LLM_HOST=<the IP address from the lecture, or localhost>" > .env
+```
+
+For example, if you were given `203.0.113.42`, the command would be `echo "LLM_HOST=203.0.113.42" > .env`. This only needs to be done once — `.env` stays in your `ai-engineering-course` folder for every future session, and (like `.venv`) it's excluded from git via `.gitignore`, so it's safe to keep secrets like this in it.
+
+---
+
+## 6. Launch Jupyter Lab
 
 From inside your `ai-engineering-course` folder (with the virtual environment activated). This command is identical on all systems:
 
