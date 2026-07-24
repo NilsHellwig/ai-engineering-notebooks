@@ -41,16 +41,16 @@ University of Regensburg
 
 ## 📚 Course Contents
 
-### **01 - Introduction to Python** 
-`Notebooks/01_intro_python.ipynb`
+### **01 - Introduction to Python**
+`chapter/01_python/01_intro_python.ipynb`
 
-Foundation in Python programming essentials for AI development.
+Foundation in Python programming essentials for AI development, from your very first `print()` statement onward.
 
 **Topics covered:**
-- Variables and data types (strings, integers, floats, booleans, lists, dictionaries)
-- String operations and F-String formatting
-- List operations and comprehensions
-- Dictionary operations for text processing
+- Variables, basic data types, and type conversion
+- Arithmetic, comparison, and logical operators
+- Control flow (`if`/`elif`/`else`) and loops (`for`, `while`)
+- Strings & f-strings, lists, tuples, sets, and dictionaries
 - Functions with default parameters and `*args`
 - Object-oriented programming: classes, inheritance, and polymorphism
 
@@ -59,7 +59,7 @@ Foundation in Python programming essentials for AI development.
 ---
 
 ### **02 - Introduction to NLP in Python**
-`Notebooks/02_intro_nlp_in_python.ipynb`
+`chapter/02_nlp_in_python/02_intro_nlp_in_python.ipynb`
 
 Natural Language Processing fundamentals using modern Python libraries.
 
@@ -77,65 +77,58 @@ Natural Language Processing fundamentals using modern Python libraries.
 ---
 
 ### **03 - Introduction to Prompting**
-`Notebooks/03_intro_prompting.ipynb`
+`chapter/03_prompting/03_intro_prompting.ipynb`
 
-Advanced prompting strategies for Large Language Models (LLMs).
+Prompting strategies for Large Language Models (LLMs), and the Chat vs. Completions APIs underneath them.
 
 **Topics covered:**
-- **Zero-shot Prompting** - Direct task execution without examples
-- **Few-shot Prompting** - Learning from examples for better performance
-- **Chain of Thought (CoT)** - Step-by-step reasoning for complex tasks
-- **Self-Consistency** - Majority voting for improved accuracy
-- **Generated Knowledge Prompting** - Leveraging model knowledge
+- **Chat Completions API** vs. the (legacy) raw **Completions API**
+- **Zero-shot** and **Few-shot Prompting**
+- **Chain of Thought (CoT)** - the classic trigger-phrase technique, and how native "thinking" models make it largely unnecessary
+- **Self-Consistency** - majority voting for improved accuracy
+- A from-scratch look at Gemma 4's raw chat template (tokens, turns, thinking)
 
 **Includes:** Named Entity Recognition exercise with evaluation
 
 ---
 
 ### **04 - Introduction to Structured Outputs**
-`Notebooks/04_intro_structured_outputs.ipynb`
+`chapter/04_structured_outputs/`
 
-Generating and validating structured outputs from LLMs using JSON schemas.
+Two notebooks: Pydantic fundamentals, then generating and validating structured LLM output with them.
 
-**Topics covered:**
-- **JSON fundamentals** and data structures
-- **Pydantic models** for data validation
-- **Structured extraction** from text and images
-- **Document analysis** and information extraction
-- **Schema definition** with Field validations
+- **Part 1:** `04_1_pydantic_basics.ipynb` - models, validation, `Field()` constraints, `Literal`, nested models, custom validators, JSON Schema generation
+- **Part 2:** `04_2_intro_structured_outputs.ipynb` - JSON fundamentals, guided JSON via `response_format`, regex-constrained output, and multi-modal document extraction
 
-**Includes:** Invoice processing and multi-modal document extraction
+**Includes:** Invoice/receipt processing and multi-modal document extraction
 
 ---
 
 ### **05 - Introduction to Function Calling**
-`Notebooks/05_intro_function_calling.ipynb`
+`chapter/05_function_calling/05_intro_function_calling.ipynb`
 
-Implementing function calling to extend LLM capabilities.
+Tool calling with the `ollama` Python package, from a single tool call to a full agent loop.
 
 **Topics covered:**
-- **Tool definition** with JSON schemas
-- **Function execution** workflows
-- **API integration** with real-world services
-- **Tool calling patterns** for LLMs
-- **Building interactive pipelines**
+- Defining tools directly from Python functions (type hints + docstrings, no manual JSON schema)
+- Single and parallel tool calling
+- Multi-turn tool calling (the agent loop pattern)
+- Handling the case where no tool is needed
 
-**Includes:** Stock price and country information API examples
+**Includes:** A tool that calls a real, free weather API (wttr.in)
 
 ---
 
 ### **06 - Agents & Model Context Protocol (MCP)**
-`chapter/06_agents/06_mcp.ipynb`
+`chapter/06_agents/`
 
-Connecting LLMs to tools exposed by a standalone MCP server, and an introduction to agents.
+Three notebooks, meant to be read in order:
 
-**Topics covered:**
-- **Model Context Protocol (MCP)** fundamentals
-- **Building an MCP server** with FastMCP
-- **Calling MCP tools** from a Python client
-- **Combining MCP tools with LLM tool calling**
+- **Part 1:** `06_1_mcp.ipynb` - what MCP is, building an MCP server with FastMCP (tools, resources, prompts), and connecting a client to it
+- **Part 2:** `06_2_agents.ipynb` - LangChain's `create_agent`, connecting an agent to the MCP server, the ReAct pattern (native vs. classic text-parsing), structured output from an agent, and human-in-the-loop approval
+- **Part 3:** `06_3_context_memory.ipynb` - context compression (summarization, clearing old tool outputs), short-term vs. long-term memory, and LLM call caching
 
-**Includes:** A small custom MCP server (`mcp_server.py`) with a university library catalog example
+**Includes:** A small custom MCP server (`mcp_server.py`) with a university library catalog example, extended with a real write operation (`checkout_book`) for the human-in-the-loop exercise
 
 ---
 
@@ -145,11 +138,10 @@ Connecting LLMs to tools exposed by a standalone MCP server, and an introduction
 Retrieval Augmented Generation for knowledge-enhanced AI responses.
 
 **Topics covered:**
-- **Embeddings** and vector representations
-- **Semantic search** with similarity metrics
-- **Vector databases** and indexing
-- **RAG pipeline architecture**
-- **Document retrieval** strategies
+- Loading and preparing documents
+- **Keyword-based search (BM25)**
+- **Semantic search** with embeddings
+- RAG pipeline architecture
 
 **Includes:** Building a complete RAG system from scratch
 
@@ -161,11 +153,10 @@ Retrieval Augmented Generation for knowledge-enhanced AI responses.
 Building interactive web interfaces for AI applications.
 
 **Topics covered:**
-- **Gradio components** and layouts
-- **Event handling** and interactivity
+- **Gradio components**, layouts, and events
+- **Blocks**, tabs, and connecting layouts
 - **Chatbot interfaces** for conversational AI
-- **Multi-modal inputs** (text, images, audio)
-- **Deployment** and sharing
+- **Multi-modal inputs** (image question answering)
 
 **Includes:** Complete examples from simple UIs to chatbots
 
@@ -173,69 +164,16 @@ Building interactive web interfaces for AI applications.
 
 ## 🚀 Getting Started
 
-### Prerequisites
-
-- Python 3.12 or higher
-- Jupyter Notebook or JupyterLab
-
-### Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/NilsHellwig/ai-engineering-notebooks.git
-   cd ai-engineering-notebooks
-   ```
-
-2. **Install Ollama:**
-
-   Ollama is required for running local Large Language Models (LLMs) used throughout the notebooks. It provides a simple API interface for interacting with various open-source models.
-
-   **macOS:**
-   ```bash
-   brew install ollama
-   ```
-
-   **Linux:**
-   ```bash
-   curl -fsSL https://ollama.com/install.sh | sh
-   ```
-
-   **Windows:**
-   Download the installer from [ollama.com](https://ollama.com/download/windows)
-
-   **Start Ollama server:**
-   ```bash
-   ollama serve
-   ```
-
-   **Pull required models** (examples used in notebooks):
-   ```bash
-   ollama pull gemma3:4b
-   ollama pull gpt-oss:20b
-   ```
-
-   For more information, visit the [Ollama documentation](https://ollama.com/docs).
-
-3. **Install Python dependencies:**
-
-   Each notebook specifies its required packages. Common dependencies include:
-   ```bash
-   pip install jupyterlab
-   ```
-
-4. **Launch Jupyter:**
-   ```bash
-   jupyter lab
-   ```
+See **[setup.md](setup.md)** for full step-by-step installation instructions (installing `uv`, setting up your project folder, installing the pinned Python packages, and connecting to the course's LLM server via a `.env` file) — separately for macOS, Windows, and Linux. You don't clone this repository as a student; chapter folders are downloaded individually from the learning platform.
 
 ---
 
 ## 📖 How to Use These Notebooks
 
-1. **Sequential Learning:** Start with notebook 01 and progress through the series
-2. **Interactive Execution:** Run code cells to see results and experiment with modifications
-3. **Practice Exercises:** Complete the exercises at the end of each notebook
-4. **Solutions Provided:** Expand the solution sections to check your work
+1. **Sequential Learning:** Start with chapter 01 and progress through the series. Within a chapter folder that has multiple notebooks (e.g. 04, 06), they're numbered `NN_1_...`, `NN_2_...`, etc. — work through them in that order.
+2. **Interactive Execution:** Run code cells to see results and experiment with modifications.
+3. **Practice Exercises:** Complete the exercises at the end of each notebook.
+4. **Solutions Provided:** Expand the solution sections to check your work.
 
 ---
 
@@ -247,7 +185,10 @@ Building interactive web interfaces for AI applications.
 - [OpenAI Function Calling API](https://platform.openai.com/docs/guides/function-calling)
 - [OpenAI Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs)
 - [Pydantic Documentation](https://pydantic.dev/)
-- [Ollama Documentation](https://ollama.com/)
+- [Ollama Documentation](https://ollama.com/) & [Ollama: Tool Calling](https://docs.ollama.com/capabilities/tool-calling)
+- [Model Context Protocol Specification](https://modelcontextprotocol.io/) & [FastMCP Documentation](https://gofastmcp.com/)
+- [LangChain: Agents](https://docs.langchain.com/oss/python/langchain/agents)
+- Yao et al. (2022), [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/pdf/2210.03629)
 - [Gradio Documentation](https://www.gradio.app/docs/)
 - [spaCy Documentation](https://spacy.io/)
 - [NLTK Documentation](https://www.nltk.org/)

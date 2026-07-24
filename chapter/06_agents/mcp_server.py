@@ -11,7 +11,7 @@ automatically - reading the type hints for the parameter types, and the
 docstring for the tool description, exactly like the `ollama` package did for
 local tools in the previous notebook.
 
-This file is not meant to be run interactively in a terminal - see 06_mcp.ipynb
+This file is not meant to be run interactively in a terminal - see 06_1_mcp.ipynb
 for how a client starts and talks to it.
 """
 
@@ -167,6 +167,6 @@ def recommend_book(subject: str) -> str:
 
 if __name__ == "__main__":
     # "stdio" transport means: talk to whichever client launched this script as a
-    # subprocess, via standard input/output. See 06_mcp.ipynb for how that client
+    # subprocess, via standard input/output. See 06_1_mcp.ipynb for how that client
     # side works, and what other transports (e.g. "http") are for.
     mcp.run(transport="stdio", show_banner=False)
