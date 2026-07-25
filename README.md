@@ -122,28 +122,27 @@ Tool calling with the `ollama` Python package, from a single tool call to a full
 ### **06 - Agents & Model Context Protocol (MCP)**
 `chapter/06_agents/`
 
-Three notebooks, meant to be read in order:
+Four notebooks, meant to be read in order:
 
 - **Part 1:** `06_1_mcp.ipynb` - what MCP is, building an MCP server with FastMCP (tools, resources, prompts), and connecting a client to it
 - **Part 2:** `06_2_agents.ipynb` - LangChain's `create_agent`, connecting an agent to the MCP server, the ReAct pattern (native vs. classic text-parsing), structured output from an agent, and human-in-the-loop approval
 - **Part 3:** `06_3_context_memory.ipynb` - context compression (summarization, clearing old tool outputs), short-term vs. long-term memory, and LLM call caching
+- **Part 4:** `06_4_subagents.ipynb` - multi-agent delegation: wrapping an agent as a tool for another agent to call, context quarantine, and choosing between several specialist subagents
 
 **Includes:** A small custom MCP server (`mcp_server.py`) with a university library catalog example, extended with a real write operation (`checkout_book`) for the human-in-the-loop exercise
 
 ---
 
-### **07 - Introduction to RAG**
-`chapter/07_rag/07_intro_rag.ipynb`
+### **07 - Retrieval-Augmented Generation (RAG)**
+`chapter/07_rag/`
 
-Retrieval Augmented Generation for knowledge-enhanced AI responses.
+Three notebooks, one per RAG architecture, meant to be read in order:
 
-**Topics covered:**
-- Loading and preparing documents
-- **Keyword-based search (BM25)**
-- **Semantic search** with embeddings
-- RAG pipeline architecture
+- **Part 1:** `07_1_two_step_rag.ipynb` - RAG fundamentals (`Document`s, loaders, text splitting, embeddings, vector stores), keyword search (BM25) vs. semantic search, and the simplest architecture: always retrieve, then generate
+- **Part 2:** `07_2_agentic_rag.ipynb` - wrapping retrieval as a tool and letting an LLM agent (`create_agent`) decide if, when, and how many times to retrieve
+- **Part 3:** `07_3_hybrid_rag.ipynb` - Corrective RAG as an explicit `StateGraph`: query rewriting, document relevance grading, and answer validation with a self-correcting retry loop
 
-**Includes:** Building a complete RAG system from scratch
+**Includes:** A real knowledge base of 500 customer tweets about airlines (with cached embeddings), reused and rebuilt across all three notebooks
 
 ---
 
@@ -156,9 +155,23 @@ Building interactive web interfaces for AI applications.
 - **Gradio components**, layouts, and events
 - **Blocks**, tabs, and connecting layouts
 - **Chatbot interfaces** for conversational AI
-- **Multi-modal inputs** (image question answering)
+- **Structured output in a real UI** (Aspect-Based Sentiment Analysis)
 
 **Includes:** Complete examples from simple UIs to chatbots
+
+---
+
+### **09 - Deep Agents**
+`chapter/09_deep_agents/09_intro_deep_agents.ipynb`
+
+The `deepagents` "agent harness": `create_deep_agent`, the built-in virtual filesystem (`ls`, `read_file`, `write_file`, `edit_file`), swapping in a real-disk backend, and task planning with `write_todos`. Delegation and human-in-the-loop approval - also built into `deepagents` - are covered by hand first in `06_4_subagents.ipynb` and `06_2_agents.ipynb`, then revisited here as the same ideas, pre-wired.
+
+**Topics covered:**
+- The **agent harness** concept: `create_agent` plus built-in scaffolding for real, longer-running tasks
+- A **virtual filesystem** (state-backed by default, swappable to real disk)
+- **Task planning** with `write_todos`
+
+**Includes:** A note-taking agent exercise that plans, writes, edits, and reads back multiple files
 
 ---
 
@@ -170,7 +183,7 @@ See **[setup.md](setup.md)** for full step-by-step installation instructions (in
 
 ## 📖 How to Use These Notebooks
 
-1. **Sequential Learning:** Start with chapter 01 and progress through the series. Within a chapter folder that has multiple notebooks (e.g. 04, 06), they're numbered `NN_1_...`, `NN_2_...`, etc. — work through them in that order.
+1. **Sequential Learning:** Start with chapter 01 and progress through the series. Within a chapter folder that has multiple notebooks (e.g. 04, 06, 07), they're numbered `NN_1_...`, `NN_2_...`, etc. — work through them in that order.
 2. **Interactive Execution:** Run code cells to see results and experiment with modifications.
 3. **Practice Exercises:** Complete the exercises at the end of each notebook.
 4. **Solutions Provided:** Expand the solution sections to check your work.
@@ -188,6 +201,11 @@ See **[setup.md](setup.md)** for full step-by-step installation instructions (in
 - [Ollama Documentation](https://ollama.com/) & [Ollama: Tool Calling](https://docs.ollama.com/capabilities/tool-calling)
 - [Model Context Protocol Specification](https://modelcontextprotocol.io/) & [FastMCP Documentation](https://gofastmcp.com/)
 - [LangChain: Agents](https://docs.langchain.com/oss/python/langchain/agents)
+- [LangChain: Retrieval](https://docs.langchain.com/oss/python/langchain/retrieval)
+- [LangChain: Multi-agent](https://docs.langchain.com/oss/python/langchain/multi-agent)
+- [LangChain: Human-in-the-loop](https://docs.langchain.com/oss/python/langchain/human-in-the-loop)
+- [LangChain: Deep Agents Overview](https://docs.langchain.com/oss/python/deepagents/overview)
+- [Hugging Face: `iecjsu/airlineSFT_All` dataset](https://huggingface.co/datasets/iecjsu/airlineSFT_All)
 - Yao et al. (2022), [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/pdf/2210.03629)
 - [Gradio Documentation](https://www.gradio.app/docs/)
 - [spaCy Documentation](https://spacy.io/)

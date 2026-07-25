@@ -1,0 +1,19 @@
+body {
+    background-color: #e0f7fa; /* Light blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-family: serif;
+    font-size: 3rem; /* Large serif font */
+    font-size: 3rem;
+}
