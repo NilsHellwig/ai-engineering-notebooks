@@ -175,15 +175,16 @@ The `deepagents` "agent harness": `create_deep_agent`, the built-in virtual file
 
 ---
 
-### **10 - Observability** ⚠️ *Advanced, optional — not part of the core course scope*
+### **10 - Testing & Observability** ⚠️ *Advanced, optional — not part of the core course scope*
 `chapter/10_observability/`
 
-Two notebooks, each covering the same concepts (traces, runs/observations, metadata, feedback/scores) on a different tool. Each notebook needs its own extra setup beyond everything else in this course — see the note at the end of [setup.md](setup.md).
+Three notebooks: a general-purpose testing notebook that needs nothing beyond the standard install, plus two notebooks covering the same observability concepts (traces, runs/observations, metadata, feedback/scores) on a different tool, each needing its own extra setup — see the note at the end of [setup.md](setup.md).
 
-- **Part 1:** `10_1_langsmith.ipynb` - observability concepts (projects, traces, runs, threads), manual instrumentation (`wrap_openai`, `@traceable`) against our own Ollama endpoint, automatic zero-code tracing for LangChain/LangGraph agents, metadata, and feedback — using [LangSmith](https://smith.langchain.com/) (hosted, free tier)
-- **Part 2:** `10_2_langfuse.ipynb` - the same ideas on [Langfuse](https://langfuse.com/) (open-source, self-hosted via Docker Compose) — includes step-by-step container setup with headless auto-provisioning, since LangSmith's self-hosting option is Enterprise-only
+- **Part 1:** `10_1_pytest.ipynb` - fixtures, parametrize, marks (skip/xfail), exception testing (`pytest.raises`), `tmp_path`, `monkeypatch`, `capsys`, assertion introspection, `conftest.py`, and selecting/rerunning tests (`-k`/`-m`/`-x`/`--lf`) — using [pytest](https://docs.pytest.org/) (just a pip package, no extra setup)
+- **Part 2:** `10_2_langsmith.ipynb` - observability concepts (projects, traces, runs, threads), manual instrumentation (`wrap_openai`, `@traceable`) against our own Ollama endpoint, automatic zero-code tracing for LangChain/LangGraph agents, metadata, and feedback — using [LangSmith](https://smith.langchain.com/) (hosted, free tier)
+- **Part 3:** `10_3_langfuse.ipynb` - the same ideas on [Langfuse](https://langfuse.com/) (open-source, self-hosted via Docker Compose) — includes step-by-step container setup with headless auto-provisioning, since LangSmith's self-hosting option is Enterprise-only
 
-**Includes:** A real self-hosted Langfuse stack (Postgres, ClickHouse, Redis, MinIO) via Docker Compose, with a ready-to-use `docker-compose.yml`
+**Includes:** A real pytest test suite (`content/tests/`) covering a library-management module end to end, plus a real self-hosted Langfuse stack (Postgres, ClickHouse, Redis, MinIO) via Docker Compose, with a ready-to-use `docker-compose.yml`
 
 ---
 
@@ -217,6 +218,7 @@ See **[setup.md](setup.md)** for full step-by-step installation instructions (in
 - [LangChain: Multi-agent](https://docs.langchain.com/oss/python/langchain/multi-agent)
 - [LangChain: Human-in-the-loop](https://docs.langchain.com/oss/python/langchain/human-in-the-loop)
 - [LangChain: Deep Agents Overview](https://docs.langchain.com/oss/python/deepagents/overview)
+- [pytest Documentation](https://docs.pytest.org/)
 - [LangSmith: Observability concepts](https://docs.langchain.com/langsmith/observability-concepts)
 - [Langfuse: Docker Compose self-hosting guide](https://langfuse.com/self-hosting/deployment/docker-compose)
 - [Hugging Face: `iecjsu/airlineSFT_All` dataset](https://huggingface.co/datasets/iecjsu/airlineSFT_All)
