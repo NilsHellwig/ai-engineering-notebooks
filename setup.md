@@ -71,7 +71,8 @@ You do **not** need to clone the GitHub repository. Whenever a new chapter is re
 
 ```
 ai-engineering-course/
-├── requirements.txt
+├── pyproject.toml
+├── uv.lock
 └── chapter/
     ├── 01_python/
     ├── 02_nlp_in_python/
@@ -80,15 +81,46 @@ ai-engineering-course/
 
 ---
 
-## 3. Create a virtual environment
+## 3. Download the project files
 
-A virtual environment is an isolated space for this course's Python packages, so they don't interfere with anything else on your computer. Make sure your terminal is still inside `ai-engineering-course`, then create it:
+Two files together describe every package this course needs, with exact versions pinned so everyone's setup matches: [`pyproject.toml`](pyproject.toml) (the package list) and [`uv.lock`](uv.lock) (the exact resolved versions of those packages, and everything they depend on). Download both directly from GitHub into your `ai-engineering-course` folder (do **not** clone the repository). Make sure your terminal is still inside `ai-engineering-course`.
+
+### macOS
 
 ```bash
-uv venv
+curl -L -o pyproject.toml https://raw.githubusercontent.com/NilsHellwig/ai-engineering-notebooks/main/pyproject.toml
+curl -L -o uv.lock https://raw.githubusercontent.com/NilsHellwig/ai-engineering-notebooks/main/uv.lock
 ```
 
-Now activate it — you'll need to repeat this "activate" step every time you open a new terminal to work on the course.
+### Windows (PowerShell)
+
+```powershell
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/NilsHellwig/ai-engineering-notebooks/main/pyproject.toml -OutFile pyproject.toml
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/NilsHellwig/ai-engineering-notebooks/main/uv.lock -OutFile uv.lock
+```
+
+### Linux
+
+```bash
+curl -L -o pyproject.toml https://raw.githubusercontent.com/NilsHellwig/ai-engineering-notebooks/main/pyproject.toml
+curl -L -o uv.lock https://raw.githubusercontent.com/NilsHellwig/ai-engineering-notebooks/main/uv.lock
+```
+
+If none of these work, simply open both links in your browser and save each page under the exact file name shown (`pyproject.toml` and `uv.lock`) into your `ai-engineering-course` folder.
+
+---
+
+## 4. Create the virtual environment and install all packages
+
+Make sure your terminal is still inside `ai-engineering-course`, then run this one command — it's the same on macOS, Windows and Linux:
+
+```bash
+uv sync
+```
+
+`uv sync` reads `pyproject.toml`/`uv.lock`, creates an isolated virtual environment for this course in a new `.venv` folder (so these packages don't interfere with anything else on your computer), and installs Jupyter Lab plus every package needed for chapters 01–09 at the exact pinned version (this may take a few minutes) — including `pytest` for chapter 10's testing notebook. Chapter 10's LangSmith/Langfuse notebooks are optional and advanced — see the note at the end of this guide.
+
+Now activate the environment — you'll need to repeat this "activate" step every time you open a new terminal to work on the course.
 
 ### macOS
 
@@ -109,40 +141,6 @@ source .venv/bin/activate
 ```
 
 If it worked, you should see `(.venv)` appear at the start of your terminal prompt.
-
----
-
-## 4. Install all required packages
-
-All packages needed across every notebook are listed with fixed (pinned) versions in one file: [`requirements.txt`](requirements.txt). Download it directly from GitHub into your `ai-engineering-course` folder (do **not** clone the repository). Make sure your terminal is still inside `ai-engineering-course`.
-
-### macOS
-
-```bash
-curl -L -o requirements.txt https://raw.githubusercontent.com/NilsHellwig/ai-engineering-notebooks/main/requirements.txt
-```
-
-### Windows (PowerShell)
-
-```powershell
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/NilsHellwig/ai-engineering-notebooks/main/requirements.txt -OutFile requirements.txt
-```
-
-### Linux
-
-```bash
-curl -L -o requirements.txt https://raw.githubusercontent.com/NilsHellwig/ai-engineering-notebooks/main/requirements.txt
-```
-
-If none of these work, simply open that link in your browser and save the page as `requirements.txt` in your `ai-engineering-course` folder.
-
-Now install everything with one command — this is the same on macOS, Windows and Linux:
-
-```bash
-uv pip install -r requirements.txt
-```
-
-This installs Jupyter Lab and all packages needed for chapters 01–09 (this may take a few minutes), including `pytest` for chapter 10's testing notebook. Chapter 10's LangSmith/Langfuse notebooks are optional and advanced — see the note at the end of this guide.
 
 Two small language models are also required for chapter 02 (NLP) — again, the same command on all systems:
 
