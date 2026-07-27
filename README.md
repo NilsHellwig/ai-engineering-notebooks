@@ -175,6 +175,18 @@ The `deepagents` "agent harness": `create_deep_agent`, the built-in virtual file
 
 ---
 
+### **10 - Observability** ⚠️ *Advanced, optional — not part of the core course scope*
+`chapter/10_observability/`
+
+Two notebooks, each covering the same concepts (traces, runs/observations, metadata, feedback/scores) on a different tool. Each notebook needs its own extra setup beyond everything else in this course — see the note at the end of [setup.md](setup.md).
+
+- **Part 1:** `10_1_langsmith.ipynb` - observability concepts (projects, traces, runs, threads), manual instrumentation (`wrap_openai`, `@traceable`) against our own Ollama endpoint, automatic zero-code tracing for LangChain/LangGraph agents, metadata, and feedback — using [LangSmith](https://smith.langchain.com/) (hosted, free tier)
+- **Part 2:** `10_2_langfuse.ipynb` - the same ideas on [Langfuse](https://langfuse.com/) (open-source, self-hosted via Docker Compose) — includes step-by-step container setup with headless auto-provisioning, since LangSmith's self-hosting option is Enterprise-only
+
+**Includes:** A real self-hosted Langfuse stack (Postgres, ClickHouse, Redis, MinIO) via Docker Compose, with a ready-to-use `docker-compose.yml`
+
+---
+
 ## 🚀 Getting Started
 
 See **[setup.md](setup.md)** for full step-by-step installation instructions (installing `uv`, setting up your project folder, installing the pinned Python packages, and connecting to the course's LLM server via a `.env` file) — separately for macOS, Windows, and Linux. You don't clone this repository as a student; chapter folders are downloaded individually from the learning platform.
@@ -183,7 +195,7 @@ See **[setup.md](setup.md)** for full step-by-step installation instructions (in
 
 ## 📖 How to Use These Notebooks
 
-1. **Sequential Learning:** Start with chapter 01 and progress through the series. Within a chapter folder that has multiple notebooks (e.g. 04, 06, 07), they're numbered `NN_1_...`, `NN_2_...`, etc. — work through them in that order.
+1. **Sequential Learning:** Start with chapter 01 and progress through the series. Within a chapter folder that has multiple notebooks (e.g. 04, 06, 07, 10), they're numbered `NN_1_...`, `NN_2_...`, etc. — work through them in that order.
 2. **Interactive Execution:** Run code cells to see results and experiment with modifications.
 3. **Practice Exercises:** Complete the exercises at the end of each notebook.
 4. **Solutions Provided:** Expand the solution sections to check your work.
@@ -205,6 +217,8 @@ See **[setup.md](setup.md)** for full step-by-step installation instructions (in
 - [LangChain: Multi-agent](https://docs.langchain.com/oss/python/langchain/multi-agent)
 - [LangChain: Human-in-the-loop](https://docs.langchain.com/oss/python/langchain/human-in-the-loop)
 - [LangChain: Deep Agents Overview](https://docs.langchain.com/oss/python/deepagents/overview)
+- [LangSmith: Observability concepts](https://docs.langchain.com/langsmith/observability-concepts)
+- [Langfuse: Docker Compose self-hosting guide](https://langfuse.com/self-hosting/deployment/docker-compose)
 - [Hugging Face: `iecjsu/airlineSFT_All` dataset](https://huggingface.co/datasets/iecjsu/airlineSFT_All)
 - Yao et al. (2022), [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/pdf/2210.03629)
 - [Gradio Documentation](https://www.gradio.app/docs/)

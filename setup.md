@@ -142,7 +142,7 @@ Now install everything with one command — this is the same on macOS, Windows a
 uv pip install -r requirements.txt
 ```
 
-This installs Jupyter Lab and all packages needed for chapters 01–07 (this may take a few minutes).
+This installs Jupyter Lab and all packages needed for chapters 01–09 (this may take a few minutes). Chapter 10 is optional and advanced — see the note at the end of this guide.
 
 Two small language models are also required for chapter 02 (NLP) — again, the same command on all systems:
 
@@ -233,3 +233,14 @@ uv run jupyter lab
 ```
 
 That's it — Jupyter Lab opens in your browser, ready to go.
+
+---
+
+## ⚠️ Optional: Chapter 10 (Advanced) — Observability
+
+Chapter 10 is **not part of the course scope**. It uses two external observability tools, each needing its own extra setup beyond anything else in this course:
+
+- **`10_1_langsmith.ipynb`** needs a free [smith.langchain.com](https://smith.langchain.com/) account and API key (no credit card required) — see the notebook itself for the exact steps.
+- **`10_2_langfuse.ipynb`** needs [Docker](https://www.docker.com/products/docker-desktop/) installed and running on your machine, since it self-hosts an open-source observability stack locally — again, the notebook walks through this step by step.
+
+Only work through this chapter if you're specifically interested in observability tooling for LLM applications - everything through chapter 09 works without either of these.
