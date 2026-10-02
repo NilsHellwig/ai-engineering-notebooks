@@ -56,7 +56,7 @@ def ask_librarian_llm(question: str) -> str:
 
     import openai
 
-    client = openai.OpenAI(base_url=f"http://{os.environ['LLM_HOST']}:11434/v1", api_key="ollama")
+    client = openai.OpenAI(base_url=f"http://{os.environ['LLM_HOST']}:{os.environ['LLM_PORT']}/v1", api_key=os.environ['LLM_API_KEY'])
     response = client.chat.completions.create(
         model="gemma4:26b",
         messages=[{"role": "user", "content": question}],

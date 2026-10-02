@@ -153,26 +153,30 @@ uv run python -m spacy download de_core_news_sm
 
 ## 5. Create your `.env` file
 
-From chapter 03 onward, notebooks connect to an LLM server. Its address is kept out of the notebooks (and out of the public GitHub repo) and instead read from a file named `.env`, which you create yourself, once, in your `ai-engineering-course` folder.
+From chapter 03 onward, notebooks connect to an LLM server. Its address, port and API key are kept out of the notebooks (and out of the public GitHub repo) and instead read from a file named `.env`, which you create yourself, once, in your `ai-engineering-course` folder.
 
-- **Taking this as part of the course?** You'll get the IP address in the lecture.
-- **Studying on your own with your own local Ollama install instead?** Use `localhost`.
+- **Taking this as part of the course?** You'll get the IP address, the port and the API key in the lecture.
+- **Studying on your own with your own local Ollama install instead?** Use `localhost` and port `11434`. A plain local Ollama doesn't check API keys, so `LLM_API_KEY` can be any non-empty value (e.g. `ollama`).
 
-Create the file with a single command — this creates `.env` with one line in it. Replace the value with the address you got in the lecture (or `localhost`):
+Create the file with a single command — this creates `.env` with three lines in it. Replace the values with the ones you got in the lecture (or `localhost` / `11434` / `ollama` for a local install):
 
 ### macOS / Linux
 
 ```bash
-echo "LLM_HOST=<the IP address from the lecture, or localhost>" > .env
+printf "LLM_HOST=<the IP address from the lecture, or localhost>\nLLM_PORT=<the port from the lecture, or 11434>\nLLM_API_KEY=<the API key from the lecture, or ollama>\n" > .env
 ```
 
 ### Windows (PowerShell)
 
 ```powershell
-echo "LLM_HOST=<the IP address from the lecture, or localhost>" > .env
+@"
+LLM_HOST=<the IP address from the lecture, or localhost>
+LLM_PORT=<the port from the lecture, or 11434>
+LLM_API_KEY=<the API key from the lecture, or ollama>
+"@ | Set-Content .env
 ```
 
-For example, if you were given `203.0.113.42`, the command would be `echo "LLM_HOST=203.0.113.42" > .env`. This only needs to be done once — `.env` stays in your `ai-engineering-course` folder for every future session, and (like `.venv`) it's excluded from git via `.gitignore`, so it's safe to keep secrets like this in it.
+For example, if you were given `203.0.113.42`, port `6669` and the key `abc123`, `.env` would contain `LLM_HOST=203.0.113.42`, `LLM_PORT=6669` and `LLM_API_KEY=abc123`. This only needs to be done once — `.env` stays in your `ai-engineering-course` folder for every future session, and (like `.venv`) it's excluded from git via `.gitignore`, so it's safe to keep secrets like this in it.
 
 ---
 
