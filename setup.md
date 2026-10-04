@@ -67,18 +67,6 @@ mkdir chapter
 
 You should now see a new `ai-engineering-course` folder on your Desktop — take a look in Finder/File Explorer. Tip: if you ever get lost in the terminal, `pwd` prints the folder you're currently in.
 
-You do **not** need to clone the GitHub repository. Whenever a new chapter is released on the learning platform, download its folder (e.g. `01_intro_python`) and place it inside your `chapter` folder — either by dragging it there in Finder/File Explorer, or by moving the download into `ai-engineering-course/chapter/` — so you end up with:
-
-```
-ai-engineering-course/
-├── pyproject.toml
-├── uv.lock
-└── chapter/
-    ├── 01_python/
-    ├── 02_nlp_in_python/
-    └── ...
-```
-
 ---
 
 ## 3. Download the project files
