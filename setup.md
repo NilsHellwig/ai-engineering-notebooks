@@ -192,6 +192,8 @@ uv run jupyter lab
 
 This opens Jupyter Lab in your browser. Navigate into the `chapter` folder and open the notebook for the current chapter.
 
+**To stop Jupyter Lab:** closing the browser tab is not enough. Either click **File → Shut Down** in Jupyter Lab, or press `Ctrl + C` in the terminal (also on macOS) and confirm with `y`.
+
 ---
 
 # Starting Work Next Time (Do This Every Time!)
