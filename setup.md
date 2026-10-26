@@ -198,12 +198,31 @@ This opens Jupyter Lab in your browser. Navigate into the `chapter` folder and o
 
 # Starting Work Next Time (Do This Every Time!)
 
-Steps 1–4 above are a **one-time setup**. Once they're done, you do **not** need to repeat them. But every time you come back to work on the course — a new day, after restarting your computer, after closing the terminal — you need to redo these three quick steps to get going again.
+Steps 1–5 above are a **one-time setup**. Once they're done, you do **not** need to repeat them. But every time you come back to work on the course — a new day, after restarting your computer, after closing the terminal or after shutting down Jupyter Lab — Jupyter Lab is no longer running, and a freshly opened terminal does not know where your project is. So you need to:
+
+1. **Open a new terminal** (Terminal on macOS/Linux, PowerShell on Windows).
+2. **Navigate into your `ai-engineering-course` folder** (the folder you created during setup).
+3. **Activate the virtual environment.**
+4. **Start Jupyter Lab again.**
+
+### Finding your way around the terminal
+
+A new terminal usually starts in your home folder, not in `ai-engineering-course`. These three commands help you find out where you are and move around:
+
+| What you want | macOS / Linux | Windows (PowerShell) |
+|---|---|---|
+| Show the folder you are currently in | `pwd` | `pwd` (or `Get-Location`) |
+| List the files and folders in it | `ls` | `ls` (or `dir`) |
+| Change into a folder | `cd foldername` | `cd foldername` |
+| Go one folder up | `cd ..` | `cd ..` |
+
+Tip: after `cd`, run `pwd` to check that you are in the right place, and `ls` to check that you see the files of the course (e.g. `.venv`, `.env`, `chapter`). If `ls` does not show them, you are in the wrong folder. The `cd` commands below assume the folder is on your Desktop; if you created it somewhere else, adjust the path accordingly.
 
 ### macOS
 
 ```bash
 cd Desktop/ai-engineering-course
+pwd
 source .venv/bin/activate
 uv run jupyter lab
 ```
@@ -212,6 +231,7 @@ uv run jupyter lab
 
 ```powershell
 cd Desktop\ai-engineering-course
+pwd
 .venv\Scripts\activate
 uv run jupyter lab
 ```
@@ -220,11 +240,12 @@ uv run jupyter lab
 
 ```bash
 cd ~/Desktop/ai-engineering-course
+pwd
 source .venv/bin/activate
 uv run jupyter lab
 ```
 
-That's it — Jupyter Lab opens in your browser, ready to go.
+That's it — Jupyter Lab opens in your browser, ready to go. Keep the terminal window open while you work; closing it stops Jupyter Lab.
 
 ---
 
