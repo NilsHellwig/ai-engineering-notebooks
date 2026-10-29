@@ -5,8 +5,8 @@
 >
 > Es wird ausdrücklich **erwartet und erwünscht**, dass ihr eigenständig weiter recherchiert und die Literatur **erweitert**:
 >
-> - **Eigene Recherche:** Sucht nach weiteren, möglichst **aktuellen** Quellen (z. B. über Google Scholar, arXiv, Semantic Scholar oder direkt in den Proceedings großer Konferenzen wie **ACL / EMNLP** (ACL Anthology), **NeurIPS**, **ICML** oder **ICLR**).
-> - **Wissenschaftliche Quellen bevorzugen:** Peer-reviewte Paper, Studien und offizielle Berichte haben Vorrang vor Blogposts oder Herstellerseiten.
+> - **Eigene Recherche:** Sucht nach weiteren, möglichst **aktuellen** Quellen (z. B. über Google Scholar, arXiv, Semantic Scholar oder direkt in den Proceedings von Konferenzen).
+> - **Wissenschaftliche Quellen bevorzugen:** Peer-reviewte Paper, Studien und offizielle Berichte haben Vorrang vor Blogposts oder Websites von LLM-Anbietern.
 > - **Kritisch prüfen:** Wer ist der Autor? Gibt es Interessenkonflikte (z. B. Hersteller über das eigene Produkt)? Wie aktuell ist die Quelle?
 > - **Sauber belegen:** Alle verwendeten Quellen im Referat nachvollziehbar angeben.
 
@@ -22,6 +22,10 @@
 | R6  | [Vibe Coding](#thema-r6-vibe-coding)                                                                                 |
 | R7  | [World Models](#thema-r7-world-models)                                                                               |
 | R8  | [Sind LLMs Vorläufer einer AGI – oder eine Sackgasse?](#thema-r8-sind-llms-vorläufer-einer-agi--oder-eine-sackgasse) |
+| R9  | [Sycophancy und Confirmation Bias in LLMs](#thema-r9-sycophancy-und-confirmation-bias-in-llms)                       |
+| R10 | [„AI Slop“ und die „Dead Internet Theory“](#thema-r10-ai-slop-und-die-dead-internet-theory)                          |
+| R11 | [Sicherheitsrisiken von KI-Agenten](#thema-r11-sicherheitsrisiken-von-ki-agenten)                                    |
+| R12 | [Grief Tech: Deadbots und digitale Unsterblichkeit](#thema-r12-grief-tech-deadbots-und-digitale-unsterblichkeit)     |
 
 ---
 
@@ -227,3 +231,96 @@
    _Kaplan et al.: Scaling Laws – Basis der Skalierungshypothese_
 8. https://machinelearning.apple.com/research/illusion-of-thinking \
    _Apple: "The Illusion of Thinking" – Grenzen von Reasoning-Modellen_
+
+---
+
+## Thema R9: Sycophancy und Confirmation Bias in LLMs
+
+### Inhalte
+
+- Was ist **Sycophancy**?
+- Ursache im Training und RLHF (nur grob erklären, keine technischen Details)
+- Wie wirkt sich Sycophancy auf Nutzer aus? (z. B. Selbstgewissheit, Bereitschaft, eigene Fehler einzugestehen, Vertrauen in die KI)
+- Was ist **Confirmation Bias**?
+- Was sind Maßnahmen gegen Sycophancy und Confirmation Bias und wie kann man selbst Chatbots kritischer nutzen?
+
+### Literatur
+
+1. https://news.stanford.edu/stories/2026/03/ai-advice-sycophantic-models-research
+2. https://web.stanford.edu/~jurafsky/lrec26out.pdf \
+   _Dan Jurafsky: Folien seines Keynote-Vortrags auf der LREC 2026 – diese Folien kann ich sehr empfehlen!_
+3. https://openai.com/index/sycophancy-in-gpt-4o/
+4. https://openai.com/index/expanding-on-sycophancy/
+5. https://www.science.org/doi/10.1126/science.aec8352
+6. https://api2.openreview.net/pdf/abca8020767975589c6ea0cc5ef5b692c1906ea6.pdf
+
+---
+
+## Thema R10: „AI Slop“ und die „Dead Internet Theory“
+
+### Inhalte
+
+- Was ist "AI Slop"?
+- Theorie: **Dead Internet Theory**: Herkunft als Verschwörungstheorie und was davon heute empirisch zutrifft
+- Wie viel des Internets ist bereits KI-generiert? Gibt es diesbezüglich aktuelle Messungen?
+- Geschäftsmodelle hinter Massen-Content (Klicks, Werbung, Engagement-Farming)
+- Folgen: Vertrauen, Qualität von Suchergebnissen
+- Was versteht man unter **Model Collapse**?
+- Reaktionen von Plattformen (Kennzeichnung, Algorithmen) und Regulierungsansätze (EU AI Act)
+
+### Literatur
+
+1. https://www.theatlantic.com/technology/archive/2021/08/dead-internet-theory-wrong-but-feels-true/619937/ \
+   _Tiffany: "Maybe You Missed It, but the Internet 'Died' Five Years Ago", The Atlantic 2021 – machte die Theorie bekannt_
+2. https://arxiv.org/abs/2604.26965 \
+   _Projektseite mit Ergebnissen: https://ai-on-the-internet.github.io/_
+3. https://www.nature.com/articles/s41586-024-07566-y
+4. https://www.anthropic.com/news/claude-text-watermark
+5. https://www.nature.com/articles/d41586-025-03967-9
+6. https://arxiv.org/abs/2509.19163
+
+---
+
+## Thema R11: Sicherheitsrisiken von KI-Agenten
+
+### Inhalte
+
+- Warum sind Agenten (LLM + Tools + Systemzugriff) ein ganz anderes Risiko als reine Chatbots?
+- Das **„Lethal Trifecta“**-Modell
+- Fallbeispiel **OpenClaw** (ehemals Clawdbot/Moltbot): ungeschützt im Internet erreichbare Instanzen, geleakte API-Keys, Malware in Skill-Marktplätzen (ClawHub)
+- **Sandbox Escape**: Können Agenten aus ihrer isolierten Umgebung ausbrechen? (z. B. SandboxEscapeBench, Vorfall bei Claude Mythos Preview oder Huggingface)
+
+### Literatur
+
+1. https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/ \
+   _Simon Willison: "The lethal trifecta for AI agents" – guter Einstieg_
+2. https://www1.wdr.de/nachrichten/openclaw-der-ki-agent-auf-dem-eigenen-computer-100.html
+3. https://aclanthology.org/2026.findings-acl.1330.pdf
+4. https://arxiv.org/abs/2603.02277
+5. https://www.bsi.bund.de/DE/Service-Navi/Presse/Alle-Meldungen-News/Blog/KI_Ausbruch_Sandbox_260724.html
+6. https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html \
+   _Malware in ClawHub-Skills (OpenClaw)_
+
+---
+
+## Thema R12: Grief Tech: Deadbots und digitale Unsterblichkeit
+
+### Inhalte
+
+- Was sind **Deadbots / Griefbots**?
+- Wie funktionieren sie technisch? (Kurze Einordnung)
+- Anbieter und Beispiele
+- Die „Digital Afterlife Industry“: Geschäftsmodelle und Monetarisierung (Abos, Werbung, Daten)
+- Psychologische Auswirkungen
+- Ethische und rechtliche Fragen: Einwilligung der Verstorbenen, postmortales Persönlichkeitsrecht, digitaler Nachlass etc.
+
+### Literatur
+
+1. https://link.springer.com/article/10.1007/s13347-024-00744-w
+2. https://www.cam.ac.uk/research/news/call-for-safeguards-to-prevent-unwanted-hauntings-by-ai-chatbots-of-dead-loved-ones \
+   _Pressemitteilung der University of Cambridge zu Paper 1_
+3. https://link.springer.com/article/10.1007/s11023-017-9445-2
+4. https://www.bidt.digital/phaenomene/digitales-weiterleben-eine-ethische-betrachtung-der-digital-afterlife-industrie/
+5. https://www.sciencedirect.com/science/article/pii/S266665962600017X
+
+---
