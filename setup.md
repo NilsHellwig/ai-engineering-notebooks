@@ -108,6 +108,8 @@ uv sync
 
 `uv sync` reads `pyproject.toml`/`uv.lock`, creates an isolated virtual environment for this course in a new `.venv` folder (so these packages don't interfere with anything else on your computer), and installs Jupyter Lab plus every package needed for chapters 01–09 at the exact pinned version (this may take a few minutes) — including `pytest` for chapter 10's testing notebook. Chapter 10's LangSmith/Langfuse notebooks are optional and advanced — see the note at the end of this guide.
 
+> **Intel Mac and `uv sync` failed with an error about `cryptography`?** You downloaded an older version of the project files. Download `pyproject.toml` and `uv.lock` again (step 3) and rerun `uv sync`. You do **not** need Homebrew or anything else.
+
 Now activate the environment — you'll need to repeat this "activate" step every time you open a new terminal to work on the course.
 
 ### macOS
