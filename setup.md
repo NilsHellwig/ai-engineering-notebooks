@@ -106,7 +106,7 @@ Make sure your terminal is still inside `ai-engineering-course`, then run this o
 uv sync
 ```
 
-`uv sync` reads `pyproject.toml`/`uv.lock`, creates an isolated virtual environment for this course in a new `.venv` folder (so these packages don't interfere with anything else on your computer), and installs Jupyter Lab plus every package needed for chapters 01–09 at the exact pinned version (this may take a few minutes) — including `pytest` for chapter 10's testing notebook. Chapter 10's LangSmith/Langfuse notebooks are optional and advanced — see the note at the end of this guide.
+`uv sync` reads `pyproject.toml`/`uv.lock`, creates an isolated virtual environment for this course in a new `.venv` folder (so these packages don't interfere with anything else on your computer), and installs Jupyter Lab plus every package needed for chapters 01–09 at the exact pinned version (this may take a few minutes) — including `pytest` for chapter 09's testing notebook. Chapter 09's LangSmith/Langfuse notebooks are optional and advanced — see the note at the end of this guide.
 
 > **Intel Mac and `uv sync` failed with an error about `cryptography`?** You downloaded an older version of the project files. Download `pyproject.toml` and `uv.lock` again (step 3) and rerun `uv sync`. You do **not** need Homebrew or anything else.
 
@@ -251,11 +251,11 @@ That's it — Jupyter Lab opens in your browser, ready to go. Keep the terminal 
 
 ---
 
-## ⚠️ Optional: Chapter 10 (Advanced) — Testing & Observability
+## ⚠️ Optional: Chapter 09 (Advanced) — Testing & Observability
 
-Two of chapter 10's three notebooks are **not part of the course scope**. `10_1_pytest.ipynb` needs nothing beyond the standard install above - it's just the `pytest` package. The other two notebooks use external observability tools, each needing its own extra setup beyond anything else in this course:
+Two of chapter 09's three notebooks are **not part of the course scope**. `09_1_pytest.ipynb` needs nothing beyond the standard install above - it's just the `pytest` package. The other two notebooks use external observability tools, each needing its own extra setup beyond anything else in this course:
 
-- **`10_2_langsmith.ipynb`** needs a free [smith.langchain.com](https://smith.langchain.com/) account and API key (no credit card required) — see the notebook itself for the exact steps.
-- **`10_3_langfuse.ipynb`** needs [Docker](https://www.docker.com/products/docker-desktop/) installed and running on your machine, since it self-hosts an open-source observability stack locally — again, the notebook walks through this step by step.
+- **`09_2_langsmith.ipynb`** needs a free [smith.langchain.com](https://smith.langchain.com/) account and API key (no credit card required) — see the notebook itself for the exact steps.
+- **`09_3_langfuse.ipynb`** needs [Docker](https://www.docker.com/products/docker-desktop/) installed and running on your machine, since it self-hosts an open-source observability stack locally — again, the notebook walks through this step by step.
 
-Only work through the LangSmith/Langfuse notebooks if you're specifically interested in observability tooling for LLM applications - everything through chapter 09, and `10_1_pytest.ipynb`, works without either of them.
+Only work through the LangSmith/Langfuse notebooks if you're specifically interested in observability tooling for LLM applications - everything through chapter 08, and `09_1_pytest.ipynb`, works without either of them.

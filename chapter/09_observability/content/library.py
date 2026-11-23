@@ -37,14 +37,14 @@ class Library:
 
 
 def is_library_open(day: str, hour: int) -> bool:
-    """The library is open Monday-Saturday, 8:00-22:00 (same hours as 10_2_langsmith.ipynb's FAQ)."""
+    """The library is open Monday-Saturday, 8:00-22:00 (same hours as 09_2_langsmith.ipynb's FAQ)."""
     if day == "Sunday":
         return False
     return 8 <= hour < 22
 
 
 def late_fee(days_late: int, daily_rate: float = 0.20) -> float:
-    """0.20 EUR/day, same rate as 10_2_langsmith.ipynb's FAQ. No cap on the fee yet."""
+    """0.20 EUR/day, same rate as 09_2_langsmith.ipynb's FAQ. No cap on the fee yet."""
     if days_late <= 0:
         return 0.0
     return round(days_late * daily_rate, 2)

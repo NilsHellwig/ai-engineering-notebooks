@@ -92,44 +92,44 @@ Prompting strategies for Large Language Models (LLMs), and the Chat vs. Completi
 
 ---
 
-### **04 - Introduction to Structured Outputs**
-`chapter/04_structured_outputs/`
+### **04 - LLM Parameters & Structured Outputs**
+`chapter/04_llm_parameters_structured_outputs/`
 
-`04_intro_structured_outputs.ipynb` - Pydantic basics (models, validation, `Field()`, `Literal`, nested models, JSON Schema), then structured LLM output via `response_format` and regex-constrained output.
+`04_intro_llm_parameters_structured_outputs.ipynb` - the five LLM inference parameters (context size, `temperature`, `top_p`/`top_k`, `max_tokens`, `stop`), then Pydantic basics (models, validation, `Field()`, `Literal`, nested models, JSON Schema), then structured LLM output via `response_format` and regex-constrained output.
 
 **Includes:** Classification and information extraction from text
 
 ---
 
-### **06 - Agents & Model Context Protocol (MCP)**
-`chapter/06_agents/`
+### **05 - Agents & Model Context Protocol (MCP)**
+`chapter/05_agents/`
 
 Four notebooks, meant to be read in order:
 
-- **Part 1:** `06_1_agents.ipynb` - tool calling with the `ollama` package (single and multiple tools, the agent loop), the same with LangChain's `create_agent`, and the ReAct pattern
-- **Part 2:** `06_2_mcp.ipynb` - what MCP is, building an MCP server with FastMCP (tools, resources, prompts), connecting a client to it, and using its tools in a LangChain agent
-- **Part 3:** `06_3_context_memory.ipynb` - context compression (summarization, clearing old tool outputs), short-term vs. long-term memory, and LLM call caching
-- **Part 4:** `06_4_subagents.ipynb` - multi-agent delegation: wrapping an agent as a tool for another agent to call, context quarantine, and choosing between several specialist subagents
+- **Part 1:** `05_1_agents.ipynb` - tool calling with the `ollama` package (single and multiple tools, the agent loop), the same with LangChain's `create_agent`, and the ReAct pattern
+- **Part 2:** `05_2_mcp.ipynb` - what MCP is, building an MCP server with FastMCP (tools, resources, prompts), connecting a client to it, and using its tools in a LangChain agent
+- **Part 3:** `05_3_context_memory.ipynb` - context compression (summarization, clearing old tool outputs), short-term vs. long-term memory, and LLM call caching
+- **Part 4:** `05_4_subagents.ipynb` - multi-agent delegation: wrapping an agent as a tool for another agent to call, context quarantine, and choosing between several specialist subagents
 
 **Includes:** Exercises with a real, free exchange-rate API (Frankfurter) and a small custom MCP server (`mcp_server.py`) with a university library catalog example
 
 ---
 
-### **07 - Retrieval-Augmented Generation (RAG)**
-`chapter/07_rag/`
+### **06 - Retrieval-Augmented Generation (RAG)**
+`chapter/06_rag/`
 
 Three notebooks, one per RAG architecture, meant to be read in order:
 
-- **Part 1:** `07_1_two_step_rag.ipynb` - RAG fundamentals (`Document`s, loaders, text splitting, embeddings, vector stores), keyword search (BM25) vs. semantic search, and the simplest architecture: always retrieve, then generate
-- **Part 2:** `07_2_agentic_rag.ipynb` - wrapping retrieval as a tool and letting an LLM agent (`create_agent`) decide if, when, and how many times to retrieve
-- **Part 3:** `07_3_hybrid_rag.ipynb` - Corrective RAG as an explicit `StateGraph`: query rewriting, document relevance grading, and answer validation with a self-correcting retry loop
+- **Part 1:** `06_1_two_step_rag.ipynb` - RAG fundamentals (`Document`s, loaders, text splitting, embeddings, vector stores), keyword search (BM25) vs. semantic search, and the simplest architecture: always retrieve, then generate
+- **Part 2:** `06_2_agentic_rag.ipynb` - wrapping retrieval as a tool and letting an LLM agent (`create_agent`) decide if, when, and how many times to retrieve
+- **Part 3:** `06_3_hybrid_rag.ipynb` - Corrective RAG as an explicit `StateGraph`: query rewriting, document relevance grading, and answer validation with a self-correcting retry loop
 
 **Includes:** A real knowledge base of 500 customer tweets about airlines (with cached embeddings), reused and rebuilt across all three notebooks
 
 ---
 
-### **08 - Introduction to Gradio**
-`chapter/08_gradio/08_intro_gradio.ipynb`
+### **07 - Introduction to Gradio**
+`chapter/07_gradio/07_intro_gradio.ipynb`
 
 Building interactive web interfaces for AI applications.
 
@@ -143,10 +143,10 @@ Building interactive web interfaces for AI applications.
 
 ---
 
-### **09 - Deep Agents**
-`chapter/09_deep_agents/09_intro_deep_agents.ipynb`
+### **08 - Deep Agents**
+`chapter/08_deep_agents/08_intro_deep_agents.ipynb`
 
-The `deepagents` "agent harness": `create_deep_agent`, the built-in virtual filesystem (`ls`, `read_file`, `write_file`, `edit_file`), swapping in a real-disk backend, and task planning with `write_todos`. Delegation (covered by hand first in `06_4_subagents.ipynb`) and human-in-the-loop approval are also built into `deepagents`.
+The `deepagents` "agent harness": `create_deep_agent`, the built-in virtual filesystem (`ls`, `read_file`, `write_file`, `edit_file`), swapping in a real-disk backend, and task planning with `write_todos`. Delegation (covered by hand first in `05_4_subagents.ipynb`) and human-in-the-loop approval are also built into `deepagents`.
 
 **Topics covered:**
 - The **agent harness** concept: `create_agent` plus built-in scaffolding for real, longer-running tasks
@@ -157,14 +157,14 @@ The `deepagents` "agent harness": `create_deep_agent`, the built-in virtual file
 
 ---
 
-### **10 - Testing & Observability** ⚠️ *Advanced, optional — not part of the core course scope*
-`chapter/10_observability/`
+### **09 - Testing & Observability** ⚠️ *Advanced, optional — not part of the core course scope*
+`chapter/09_observability/`
 
 Three notebooks: a general-purpose testing notebook that needs nothing beyond the standard install, plus two notebooks covering the same observability concepts (traces, runs/observations, metadata, feedback/scores) on a different tool, each needing its own extra setup — see the note at the end of [setup.md](setup.md).
 
-- **Part 1:** `10_1_pytest.ipynb` - fixtures, parametrize, marks (skip/xfail), exception testing (`pytest.raises`), `tmp_path`, `monkeypatch`, `capsys`, assertion introspection, `conftest.py`, and selecting/rerunning tests (`-k`/`-m`/`-x`/`--lf`) — using [pytest](https://docs.pytest.org/) (just a pip package, no extra setup)
-- **Part 2:** `10_2_langsmith.ipynb` - observability concepts (projects, traces, runs, threads), manual instrumentation (`wrap_openai`, `@traceable`) against our own Ollama endpoint, automatic zero-code tracing for LangChain/LangGraph agents, metadata, and feedback — using [LangSmith](https://smith.langchain.com/) (hosted, free tier)
-- **Part 3:** `10_3_langfuse.ipynb` - the same ideas on [Langfuse](https://langfuse.com/) (open-source, self-hosted via Docker Compose) — includes step-by-step container setup with headless auto-provisioning, since LangSmith's self-hosting option is Enterprise-only
+- **Part 1:** `09_1_pytest.ipynb` - fixtures, parametrize, marks (skip/xfail), exception testing (`pytest.raises`), `tmp_path`, `monkeypatch`, `capsys`, assertion introspection, `conftest.py`, and selecting/rerunning tests (`-k`/`-m`/`-x`/`--lf`) — using [pytest](https://docs.pytest.org/) (just a pip package, no extra setup)
+- **Part 2:** `09_2_langsmith.ipynb` - observability concepts (projects, traces, runs, threads), manual instrumentation (`wrap_openai`, `@traceable`) against our own Ollama endpoint, automatic zero-code tracing for LangChain/LangGraph agents, metadata, and feedback — using [LangSmith](https://smith.langchain.com/) (hosted, free tier)
+- **Part 3:** `09_3_langfuse.ipynb` - the same ideas on [Langfuse](https://langfuse.com/) (open-source, self-hosted via Docker Compose) — includes step-by-step container setup with headless auto-provisioning, since LangSmith's self-hosting option is Enterprise-only
 
 **Includes:** A real pytest test suite (`content/tests/`) covering a library-management module end to end, plus a real self-hosted Langfuse stack (Postgres, ClickHouse, Redis, MinIO) via Docker Compose, with a ready-to-use `docker-compose.yml`
 
@@ -178,7 +178,7 @@ See **[setup.md](setup.md)** for full step-by-step installation instructions (in
 
 ## 📖 How to Use These Notebooks
 
-1. **Sequential Learning:** Start with chapter 01 and progress through the series. Within a chapter folder that has multiple notebooks (e.g. 06, 07, 10), they're numbered `NN_1_...`, `NN_2_...`, etc. — work through them in that order.
+1. **Sequential Learning:** Start with chapter 01 and progress through the series. Within a chapter folder that has multiple notebooks (e.g. 05, 06, 09), they're numbered `NN_1_...`, `NN_2_...`, etc. — work through them in that order.
 2. **Interactive Execution:** Run code cells to see results and experiment with modifications.
 3. **Practice Exercises:** Complete the exercises at the end of each notebook.
 4. **Solutions Provided:** Expand the solution sections to check your work.
