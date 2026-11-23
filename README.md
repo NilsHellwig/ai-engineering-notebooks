@@ -95,27 +95,9 @@ Prompting strategies for Large Language Models (LLMs), and the Chat vs. Completi
 ### **04 - Introduction to Structured Outputs**
 `chapter/04_structured_outputs/`
 
-Two notebooks: Pydantic fundamentals, then generating and validating structured LLM output with them.
+`04_intro_structured_outputs.ipynb` - Pydantic basics (models, validation, `Field()`, `Literal`, nested models, JSON Schema), then structured LLM output via `response_format` and regex-constrained output.
 
-- **Part 1:** `04_1_pydantic_basics.ipynb` - models, validation, `Field()` constraints, `Literal`, nested models, custom validators, JSON Schema generation
-- **Part 2:** `04_2_intro_structured_outputs.ipynb` - JSON fundamentals, guided JSON via `response_format`, regex-constrained output, and multi-modal document extraction
-
-**Includes:** Invoice/receipt processing and multi-modal document extraction
-
----
-
-### **05 - Introduction to Function Calling**
-`chapter/05_function_calling/05_intro_function_calling.ipynb`
-
-Tool calling with the `ollama` Python package, from a single tool call to a full agent loop.
-
-**Topics covered:**
-- Defining tools directly from Python functions (type hints + docstrings, no manual JSON schema)
-- Single and parallel tool calling
-- Multi-turn tool calling (the agent loop pattern)
-- Handling the case where no tool is needed
-
-**Includes:** A tool that calls a real, free weather API (wttr.in)
+**Includes:** Classification and information extraction from text
 
 ---
 
@@ -124,12 +106,12 @@ Tool calling with the `ollama` Python package, from a single tool call to a full
 
 Four notebooks, meant to be read in order:
 
-- **Part 1:** `06_1_mcp.ipynb` - what MCP is, building an MCP server with FastMCP (tools, resources, prompts), and connecting a client to it
-- **Part 2:** `06_2_agents.ipynb` - LangChain's `create_agent`, connecting an agent to the MCP server, the ReAct pattern (native vs. classic text-parsing), structured output from an agent, and human-in-the-loop approval
+- **Part 1:** `06_1_agents.ipynb` - tool calling with the `ollama` package (single and multiple tools, the agent loop), the same with LangChain's `create_agent`, and the ReAct pattern
+- **Part 2:** `06_2_mcp.ipynb` - what MCP is, building an MCP server with FastMCP (tools, resources, prompts), connecting a client to it, and using its tools in a LangChain agent
 - **Part 3:** `06_3_context_memory.ipynb` - context compression (summarization, clearing old tool outputs), short-term vs. long-term memory, and LLM call caching
 - **Part 4:** `06_4_subagents.ipynb` - multi-agent delegation: wrapping an agent as a tool for another agent to call, context quarantine, and choosing between several specialist subagents
 
-**Includes:** A small custom MCP server (`mcp_server.py`) with a university library catalog example, extended with a real write operation (`checkout_book`) for the human-in-the-loop exercise
+**Includes:** Exercises with a real, free exchange-rate API (Frankfurter) and a small custom MCP server (`mcp_server.py`) with a university library catalog example
 
 ---
 
@@ -164,7 +146,7 @@ Building interactive web interfaces for AI applications.
 ### **09 - Deep Agents**
 `chapter/09_deep_agents/09_intro_deep_agents.ipynb`
 
-The `deepagents` "agent harness": `create_deep_agent`, the built-in virtual filesystem (`ls`, `read_file`, `write_file`, `edit_file`), swapping in a real-disk backend, and task planning with `write_todos`. Delegation and human-in-the-loop approval - also built into `deepagents` - are covered by hand first in `06_4_subagents.ipynb` and `06_2_agents.ipynb`, then revisited here as the same ideas, pre-wired.
+The `deepagents` "agent harness": `create_deep_agent`, the built-in virtual filesystem (`ls`, `read_file`, `write_file`, `edit_file`), swapping in a real-disk backend, and task planning with `write_todos`. Delegation (covered by hand first in `06_4_subagents.ipynb`) and human-in-the-loop approval are also built into `deepagents`.
 
 **Topics covered:**
 - The **agent harness** concept: `create_agent` plus built-in scaffolding for real, longer-running tasks
@@ -196,7 +178,7 @@ See **[setup.md](setup.md)** for full step-by-step installation instructions (in
 
 ## 📖 How to Use These Notebooks
 
-1. **Sequential Learning:** Start with chapter 01 and progress through the series. Within a chapter folder that has multiple notebooks (e.g. 04, 06, 07, 10), they're numbered `NN_1_...`, `NN_2_...`, etc. — work through them in that order.
+1. **Sequential Learning:** Start with chapter 01 and progress through the series. Within a chapter folder that has multiple notebooks (e.g. 06, 07, 10), they're numbered `NN_1_...`, `NN_2_...`, etc. — work through them in that order.
 2. **Interactive Execution:** Run code cells to see results and experiment with modifications.
 3. **Practice Exercises:** Complete the exercises at the end of each notebook.
 4. **Solutions Provided:** Expand the solution sections to check your work.
